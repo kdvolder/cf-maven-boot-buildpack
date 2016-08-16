@@ -53,18 +53,23 @@ tar xzf ${cacheDir}/jdk.tar.gz
 javaDirName=`ls` # there should be just one sub dir here so this shoud work to find its name.
 echo "javaDirName = " $javaDirName
 export JAVA_HOME=$appDir/jdk/$javaDirName
+export PATH=${PATH}:${JAVA_HOME}/bin
 
 echo "----- JDK setup summary ------"
 echo JAVA_HOME=$JAVA_HOME
 echo export JAVA_HOME=$JAVA_HOME > java_home.sh
 
-#echo "------------------- jdk contents -----------------------------------------"
-#cd ${cacheDir}/jdk
-#find . -print
-#cd $cacheDir
-#echo "pwd = " `pwd`
-#ls -laR
-#echo "------------------- jdk contents -----------------------------------------"
+##############################################################################################
+# Unpack the app
+##############################################################################################
+
+appJar=${buildDir}/target/*.jar
+echo "appJar=$appJar"
+mkdir -p ${appDir}/classpath
+pushd ${appDir}/classpath
+jar xvf ${appJar}
+popd
+rm -fr ${buildDir}/target
 
 ##############################################################################################
 # Set env vars for the app's runtime
@@ -118,12 +123,9 @@ cd ${appDir}
 cp ${buildpackDir}/start.sh start.sh
 chmod a+x start.sh
 
-#cat start.sh
-
 echo "==== generating release.yml file ==================================================="
 echo "default_process_types:" > ${appDir}/release.yml
 echo "  web: \$HOME/start.sh" >>  ${appDir}/release.yml
-#echo "  web: echo is-this-running" >> ${appDir}/release.yml
 
 echo "--- release.yml ---"
 cat release.yml
