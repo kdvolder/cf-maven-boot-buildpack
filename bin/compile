@@ -63,14 +63,13 @@ echo export JAVA_HOME=$JAVA_HOME > java_home.sh
 # Unpack the app
 ##############################################################################################
 
-appJar=`ls ${appDir}/target/*.jar`
 echo "Unpacking appJar = $appJar"
+appJar=`ls ${appDir}/target/*.jar`
 mkdir -p ${appDir}/classpath
 pushd ${appDir}/classpath
 jar xvf ${appJar}
 popd
-echo "Unpacking appJar = $appJar"
-rm -fr ${buildDir}/target
+rm -fr ${appDir}/target
 
 ##############################################################################################
 # Set env vars for the app's runtime
