@@ -18,6 +18,7 @@ appDir=$1
 cacheDir=$2
 scriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 buildpackDir=${scriptDir}/..
+nodejsInstallDir=${scriptDir}
 
 echo "workDir = " $workDir
 echo "appDir = " $appDir
@@ -33,9 +34,10 @@ echo "====================="
 
 mkdir -p $cacheDir
 
-##############################################################################################
+
+#############################################################################################
 # JDK setup
-##############################################################################################
+#############################################################################################
 echo ===== setting up JDK =====
 cd $cacheDir
 if [ -f jdk.tar.gz ]; then
@@ -111,6 +113,14 @@ echo export KDV_TEST=kris-test >> ${profileFile}
 #cd $appDir
 #echo "PWD = " `pwd`
 #$mvn --batch-mode clean package
+
+##############################################################################################
+# Node.js setup
+##############################################################################################
+cd ${nodejsInstallDir}
+echo "==== running Node.js installation script ==================================================="
+chmod a+x nodejs_install.sh
+./nodejs_install.sh $appDir $cacheDir
 
 ##############################################################################################
 # generate release.yml
