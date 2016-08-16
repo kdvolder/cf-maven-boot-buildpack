@@ -63,12 +63,13 @@ echo export JAVA_HOME=$JAVA_HOME > java_home.sh
 # Unpack the app
 ##############################################################################################
 
-appJar=${buildDir}/target/*.jar
-echo "appJar=$appJar"
+appJar=`ls ${buildDir}/target/*.jar`
+echo "Unpacking appJar = $appJar"
 mkdir -p ${appDir}/classpath
 pushd ${appDir}/classpath
 jar xvf ${appJar}
 popd
+echo "Unpacking appJar = $appJar"
 rm -fr ${buildDir}/target
 
 ##############################################################################################
