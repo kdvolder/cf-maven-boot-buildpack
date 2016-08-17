@@ -30,4 +30,4 @@ echo "NPM version: " `./bin/npm -v`
 cd ${appDir}
 mkdir node_modules
 echo "Installing Orion via npm"
-BUILD_ONLY=true ${nodeDir}/bin/npm install orion
+${nodeDir}/bin/npm install 'orion@0.0.37'
