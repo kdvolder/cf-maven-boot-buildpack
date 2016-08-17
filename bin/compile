@@ -87,7 +87,7 @@ else
     wget $ideUrl -O ide.jar
 fi
 
-cp -v ide.jar ${appDir}/classpath/ide.jar
+cp -v ide.jar ${appDir}/classpath/BOOT-INF/lib/ide.jar
 
 ##############################################################################################
 # Add DevTools Jar
@@ -101,7 +101,7 @@ else
     wget $devtoolsUrl -O spring-boot-devtools.jar
 fi
 
-cp -v spring-boot-devtools.jar ${appDir}/classpath/spring-boot-devtools.jar
+cp -v spring-boot-devtools.jar ${appDir}/classpath/BOOT-INF/lib/spring-boot-devtools.jar
 
 ##############################################################################################
 # Set env vars for the app's runtime
