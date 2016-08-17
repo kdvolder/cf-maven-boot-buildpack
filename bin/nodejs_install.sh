@@ -26,3 +26,9 @@ cd $version
 echo "Node installation directory" `pwd`
 echo "Node version: " `./bin/node -v`
 echo "NPM version: " `./bin/npm -v`
+
+echo "Installing Orion via npm"
+./bin/npm install orion
+
+echo "Starting Orion via npm"
+./bin/npm start orion
