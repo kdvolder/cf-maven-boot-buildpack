@@ -9,7 +9,7 @@ cacheDir=$2
 echo ===== setting up Node.js =====
 cd $cacheDir
 echo "Checking if Node.js tar file is downloaded in cache " `pwd`
-if [ -f node.tar.gz]; then
+if [ -f node.tar.gz ]; then
     echo "Found node.js install in cache"
 else
     wget $nodeJsUrl -O node.tar.gz # would be nice to use -N but it doesn't work for this url.
