@@ -79,15 +79,15 @@ rm -fr ${appDir}/target
 # Add IDE JAR
 ##############################################################################################
 
-echo "Adding IDE JAR"
-cd $cacheDir
-if [ -f ide.jar ]; then
-    echo "Found ide.jar in cache"
-else
-    wget $ideUrl -O ide.jar
-fi
+# echo "Adding IDE JAR"
+# cd $cacheDir
+# if [ -f ide.jar ]; then
+#     echo "Found ide.jar in cache"
+# else
+#     wget $ideUrl -O ide.jar
+# fi
 
-cp -v ide.jar ${appDir}/classpath/BOOT-INF/lib/ide.jar
+# cp -v ide.jar ${appDir}/classpath/BOOT-INF/lib/ide.jar
 
 ##############################################################################################
 # Add DevTools Jar
