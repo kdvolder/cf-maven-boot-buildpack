@@ -23,11 +23,11 @@ echo "Unzipping to " `pwd`
 tar xzf ${cacheDir}/node.tar.gz
 cd $version
 
-echo "Node installation directory" `pwd`
+nodeDir=`pwd`
 echo "Node version: " `./bin/node -v`
 echo "NPM version: " `./bin/npm -v`
 
 cd ${appDir}
 mkdir node_modules
 echo "Installing Orion via npm"
-./bin/npm install orion
+${nodeDir}/bin/npm install orion
