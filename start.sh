@@ -10,10 +10,13 @@ pushd node_modules/orion-duck-tape
 npm start &
 popd
 
+targetRoot=${HOME}/classpath/BOOT-INF/classes
+
 echo STARTING JAVA APP
 $JAVA_HOME/bin/java \
     -Dsourceroot=${HOME}/src/main/java \
-    -Dtargetroot=${HOME}/classpath/BOOT-INF/classes \
+    -Dtargetroot=${targetRoot} \
+    -Dspring.devtools.restart.additional-paths=${targetRoot}
     -cp ${HOME}/classpath \
     org.springframework.boot.loader.JarLauncher
 
