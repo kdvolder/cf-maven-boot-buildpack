@@ -14,9 +14,9 @@ collectionsUrl=http://central.maven.org/maven2/commons-collections/commons-colle
 zuulUrl=http://central.maven.org/maven2/com/netflix/zuul/zuul-core/${zuulVersion}/zuul-core-${zuulVersion}.jar
 
 addJar() {
-    local file = $1
-    local url = $2
-    local message = $3
+    local file=$1
+    local url=$2
+    local message=$3
     echo ${message}
     cd $cacheDir
     if [ -f ${file} ]; then
