@@ -33,30 +33,12 @@ addJar() {
 ##############################################################################################
 
 addJar $ideUrl ide-${ideVersion}.jar "===== Adding IDE JAR ====="
-#echo "===== Adding IDE JAR ====="
-#cd $cacheDir
-#if [ -f ide-${ideVersion}.jar ]; then
-#    echo "Found ide-${ideVersion}.jar in cache"
-#else
-#    wget $ideUrl -O ide-${ideVersion}.jar
-#fi
-#
-#cp -v ide-${ideVersion}.jar ${classpathDir}/ide-${ideVersion}.jar
 
 ##############################################################################################
 # Add DevTools Jar
 ##############################################################################################
 
 addJar $devtoolsUrl spring-boot-devtools-${devtoolsVersion}.jar "===== Adding DevTools JAR ====="
-#echo "===== Adding DevTools JAR ====="
-#cd $cacheDir
-#if [ -f spring-boot-devtools-${devtoolsVersion}.jar ]; then
-#    echo "Found spring-boot-devtools.jar in cache"
-#else
-#    wget $devtoolsUrl -O spring-boot-devtools-${devtoolsVersion}.jar
-#fi
-#
-#cp -v spring-boot-devtools-${devtoolsVersion}.jar ${classpathDir}/spring-boot-devtools-${devtoolsVersion}.jar
 
 ##############################################################################################
 # Add Ide Dependencies Jars
