@@ -16,7 +16,7 @@ echo STARTING JAVA APP
 $JAVA_HOME/bin/java \
     -Dsourceroot=${HOME}/src/main/java \
     -Dtargetroot=${targetRoot} \
-    -Dspring.devtools.restart.additional-paths=${targetRoot}
+    -Dspring.devtools.restart.additional-paths=${targetRoot} \
     -cp ${HOME}/classpath \
     org.springframework.boot.loader.JarLauncher
 
