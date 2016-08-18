@@ -7,9 +7,6 @@ set -e
  
 mvnUrl=http://www-us.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 jdkUrl=http://jdk-distros.cfapps.io/jdk-8u101-linux-x64.tar.gz
-ideUrl=http://aboyko-ide-jar-server.cfapps.io/ide/ide-0.0.3.jar
-devtoolsUrl=http://central.maven.org/maven2/org/springframework/boot/spring-boot-devtools/1.4.0.RELEASE/spring-boot-devtools-1.4.0.RELEASE.jar
-
 ##############################################################################################
 # basic setup
 ##############################################################################################
@@ -76,34 +73,6 @@ popd
 rm -fr ${appDir}/target
 
 ##############################################################################################
-# Add IDE JAR
-##############################################################################################
-
-echo "Adding IDE JAR"
-cd $cacheDir
-if [ -f ide.jar ]; then
-    echo "Found ide.jar in cache"
-else
-    wget $ideUrl -O ide.jar
-fi
-
-cp -v ide.jar ${appDir}/classpath/BOOT-INF/lib/ide.jar
-
-##############################################################################################
-# Add DevTools Jar
-##############################################################################################
-
-echo "Adding DevTools JAR"
-cd $cacheDir
-if [ -f spring-boot-devtools.jar ]; then
-    echo "Found spring-boot-devtools.jar in cache"
-else
-    wget $devtoolsUrl -O spring-boot-devtools.jar
-fi
-
-cp -v spring-boot-devtools.jar ${appDir}/classpath/BOOT-INF/lib/spring-boot-devtools.jar
-
-##############################################################################################
 # Set env vars for the app's runtime
 ##############################################################################################
 
@@ -111,6 +80,12 @@ profileFile=${appDir}/.profile
 touch ${profileFile}
 echo export JAVA_HOME=${HOME}/app/jdk/${javaDirName} >> ${profileFile}
 echo export KDV_TEST=kris-test >> ${profileFile}
+
+##############################################################################################
+# Add Extra Jars on the classpath
+##############################################################################################
+chmod a+x extra-jars.sh
+./extra-jars.sh $appDir $cacheDir
 
 ##############################################################################################
 # MVN setup
