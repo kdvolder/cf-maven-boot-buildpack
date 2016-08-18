@@ -13,7 +13,7 @@ popd
 echo STARTING JAVA APP
 $JAVA_HOME/bin/java \
     -Dsourceroot=${HOME}/src/main/java \
-    -Dtargetroot=${HOME}/target/classpath/BOOT-INF/classes \
-    -cp \
-    ${HOME}/classpath org.springframework.boot.loader.JarLauncher
+    -Dtargetroot=${HOME}/classpath/BOOT-INF/classes \
+    -cp ${HOME}/classpath \
+    org.springframework.boot.loader.JarLauncher
 
