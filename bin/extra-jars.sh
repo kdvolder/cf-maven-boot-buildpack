@@ -59,13 +59,13 @@ cp -v commons-collections-${collectionsVersion}.jar ${classpathDir}/commons-coll
 # Add Zuul Jar
 ##############################################################################################
 
-echo "===== Adding Zuul JAR ====="
-cd $cacheDir
-if [ -f zuul-core-${zuulVersion}.jar ]; then
-    echo "Found zuul-core-${zuulVersion}.jar in cache"
-else
-    wget $devtoolsUrl -O zuul-core-${zuulVersion}.jar
-fi
-
-cp -v zuul-core-${zuulVersion}.jar ${classpathDir}/zuul-core-${zuulVersion}.jar
+#echo "===== Adding Zuul JAR ====="
+#cd $cacheDir
+#if [ -f zuul-core-${zuulVersion}.jar ]; then
+#    echo "Found zuul-core-${zuulVersion}.jar in cache"
+#else
+#    wget $devtoolsUrl -O zuul-core-${zuulVersion}.jar
+#fi
+#
+#cp -v zuul-core-${zuulVersion}.jar ${classpathDir}/zuul-core-${zuulVersion}.jar
 
