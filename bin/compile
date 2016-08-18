@@ -84,6 +84,7 @@ echo export KDV_TEST=kris-test >> ${profileFile}
 ##############################################################################################
 # Add Extra Jars on the classpath
 ##############################################################################################
+cd ${scriptDir}
 chmod a+x extra-jars.sh
 ./extra-jars.sh $appDir $cacheDir
 
