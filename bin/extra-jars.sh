@@ -6,12 +6,12 @@ classpathDir=${appDir}/classpath/BOOT-INF/lib
 ideVersion=0.0.3
 devtoolsVersion=1.4.0.RELEASE
 collectionsVersion=3.2.2
-zuulVersion=1.1.5.RELEASE
+zuulVersion=1.1.0
 
 ideUrl=http://aboyko-ide-jar-server.cfapps.io/ide/ide-${ideVersion}.jar
 devtoolsUrl=http://central.maven.org/maven2/org/springframework/boot/spring-boot-devtools/${devtoolsVersion}/spring-boot-devtools-${devtoolsVersion}.jar
 collectionsUrl=http://central.maven.org/maven2/commons-collections/commons-collections/${collectionsVersion}/commons-collections-${collectionsVersion}.jar
-zuulUrl=http://central.maven.org/maven2/org/springframework/cloud/spring-cloud-starter-zuul/${zuulVersion}/spring-cloud-starter-zuul-${zuulVersion}.jar
+zuulUrl=http://central.maven.org/maven2/com/netflix/zuul/zuul-core/${zuulVersion}/zuul-core-${zuulVersion}.jar
 
 ##############################################################################################
 # Add IDE JAR
@@ -56,16 +56,16 @@ fi
 cp -v commons-collections-${collectionsVersion}.jar ${classpathDir}/commons-collections-${collectionsVersion}.jar
 
 ##############################################################################################
-# Add Collections Jar
+# Add Zuul Jar
 ##############################################################################################
 
 echo "===== Adding Zuul JAR ====="
 cd $cacheDir
-if [ -f spring-cloud-starter-zuul-${zuulVersion}.jar ]; then
-    echo "Found spring-cloud-starter-zuul-${zuulVersion}.jar in cache"
+if [ -f zuul-core-${zuulVersion}.jar ]; then
+    echo "Found zuul-core-${zuulVersion}.jar in cache"
 else
-    wget $devtoolsUrl -O spring-cloud-starter-zuul-${zuulVersion}.jar
+    wget $devtoolsUrl -O zuul-core-${zuulVersion}.jar
 fi
 
-cp -v spring-cloud-starter-zuul-${zuulVersion}.jar ${classpathDir}/spring-cloud-starter-zuul-${zuulVersion}.jar
+cp -v zuul-core-${zuulVersion}.jar ${classpathDir}/zuul-core-${zuulVersion}.jar
 
