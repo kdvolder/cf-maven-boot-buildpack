@@ -10,13 +10,31 @@ pushd node_modules/orion-duck-tape
 npm start &
 popd
 
-targetRoot=${HOME}/classpath/BOOT-INF/classes
 
-echo STARTING JAVA APP
+classpathDir=${HOME}/classpath
+libDir=${classpathDir}/BOOT-INF/lib
+classesDir=${classpathDir}/BOOT-INF/classes
+libJars=$(find ${libDir} -name '*.jar')
+classpath=${classesDir}$(printf ":%s" ${libJars[@]})
+mainClass=`cat ${classpathDir}/META-INF/MANIFEST.MF | grep 'Start-Class:' | awk '{print $2}' | tr -d '\r' | tr -d '\n'`
+
+echo '==== classpath ====' 
+echo $classpath
+echo '==== mainClass ====' 
+echo ${mainClass}
+echo '==== starting java app ===='
+
 $JAVA_HOME/bin/java \
     -Dsourceroot=${HOME}/src/main/java \
-    -Dtargetroot=${targetRoot} \
-    -Dspring.devtools.restart.additional-paths=${targetRoot} \
-    -cp ${HOME}/classpath \
-    org.springframework.boot.loader.JarLauncher
+    -Dtargetroot=${classesDir} \
+    -cp ${classpath} \
+    ${mainClass}
+
+# echo STARTING JAVA APP
+# echo $JAVA_HOME/bin/java \
+#     -Dsourceroot=${HOME}/src/main/java \
+#     -Dtargetroot=${targetRoot} \
+#     -Dspring.devtools.restart.additional-paths=${targetRoot} \
+#     -cp classpath \
+#     org.springframework.boot.loader.JarLauncher
 
