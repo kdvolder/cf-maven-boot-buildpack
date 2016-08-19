@@ -5,15 +5,15 @@ classpathDir=${appDir}/classpath/BOOT-INF/lib
 
 ideVersion=0.0.3
 devtoolsVersion=1.4.0.RELEASE
-collectionsVersion=3.2.2
-zuulVersion=1.1.0
 
-ideUrl=http://aboyko-ide-jar-server.cfapps.io/ide/ide-${ideVersion}.jar
-ideDependenciesUrl=http://aboyko-ide-jar-server.cfapps.io/ide/ide-dependencies.tar.gz
+#ideUrl=http://aboyko-ide-jar-server.cfapps.io/ide/ide-${ideVersion}.jar
+#ideDependenciesUrl=http://aboyko-ide-jar-server.cfapps.io/ide/ide-dependencies.tar.gz
+
+ideUrl=http://upload-and-serve.cfapps.io/ide/ide-${ideVersion}.jar
+ideDependenciesUrl=http://upload-and-serve.cfapps.io/ide/ide-dependencies.tar.gz
+
 devtoolsUrl=http://central.maven.org/maven2/org/springframework/boot/spring-boot-devtools/${devtoolsVersion}/spring-boot-devtools-${devtoolsVersion}.jar
 collectionsUrl=http://central.maven.org/maven2/commons-collections/commons-collections/${collectionsVersion}/commons-collections-${collectionsVersion}.jar
-zuulUrl=http://central.maven.org/maven2/com/netflix/zuul/zuul-core/${zuulVersion}/zuul-core-${zuulVersion}.jar
-
 addJar() {
     local url=$1
     local file=$2
